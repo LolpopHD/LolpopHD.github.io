@@ -1,12 +1,17 @@
 var consonants = ["b","c","d","f","g","h","k","l","m","n","p","q","r","s","t","v","w","x","y","z"];
 
+function clear(){
+  var Output = document.getElementById("output");
+  var Input = document.getElementById("input");
+  Output.value = "";
+  Input.value = "";
+}
 function encode(){
   var text = Caesar(false, 5, document.getElementById("input").value);
   var text = KidLang(false, text);
   var Output = document.getElementById("output");
   Output.value = text;
 }
-
 function decode(){
   var text = KidLang(true, document.getElementById("output").value);
   text = Caesar(true, 5, text);
