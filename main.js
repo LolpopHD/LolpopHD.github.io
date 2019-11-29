@@ -12,8 +12,7 @@ function decode(){
   var Input = document.getElementById("input");
   Input.value = text;
 }
-function clear(){
-  console.log("AAAAA");
+function clean(){
   var Output = document.getElementById("output");
   var Input = document.getElementById("input");
   Output.value = "";
