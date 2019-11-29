@@ -1,0 +1,124 @@
+body {
+  background: linear-gradient(120deg, #3498db, #8e44ad);
+  background-size: 1800% 1800%;
+
+  -webkit-animation: nice 5s ease infinite;
+  -z-animation: nice 5s ease infinite;
+  -o-animation: nice 5s ease infinite;
+  animation: nice 5s ease infinite;
+}
+
+@-webkit-keyframes nice {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-moz-keyframes nice {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-o-keyframes nice {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@keyframes nice {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+
+#encryption{
+  box-shadow: 5px 5px #b0b0b0;
+  box-sizing: content-box;
+  background-color: #f2f2f2;
+  border-style: solid;
+  border-color: white;
+  border-radius: 15px;
+  border-width: 5px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-collapse: collapse;
+  position: relative;
+  top: 50px;
+  width: 350px;
+  height: auto;
+}
+
+#encryption p {
+  position: relative;
+  bottom: 5px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: montserrat;
+  font-weight: bold;
+}
+
+#encryption #input {
+  border-color: linear-gradient(120deg, #3498db, #8e44ad);
+  overflow: hidden;
+  resize: none;
+  font-family: montserrat;
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  align-self: center;
+  border-radius: 5px;
+  height: 100px;
+  width: 345px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+#encryption #input:focus{outline: none;}
+
+#encryption #encode {
+  border-color: #8e44ad;
+  position: relative;
+  border-radius: 3px;
+  font-family: montserrat;
+  font-weight: bold;
+  font-size: 20px;
+  top: 10px;
+  align-self: center;
+  width: 350px;
+  height: 70px;
+}
+#encryption #encode:focus {outline: none;}
+#encryption #encode:active {outline: none;}
+
+#encryption #decode {
+  border-color: #3498db;
+  position: relative;
+  border-radius: 3px;
+  font-family: montserrat;
+  font-weight: bold;
+  font-size: 20px;
+  top: 20px;
+  align-self: center;
+  width: 350px;
+  height: 70px;
+}
+#encryption #decode:focus{outline: none;}
+#encryption #decode:active{outline: none;}
+
+#encryption #output {
+  border-color: linear-gradient(120deg, #3498db, #8e44ad);
+  overflow: hidden;
+  resize: none;
+  font-family: montserrat;
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  align-self: center;
+  border-radius: 5px;
+  height: 100px;
+  width: 345px;
+  top: 30px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+#encryption #output:focus{outline: none;}
