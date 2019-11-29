@@ -1,4 +1,5 @@
 body {
+  align-content: center;
   background: linear-gradient(120deg, #3498db, #8e44ad);
   background-size: 1800% 1800%;
 
@@ -30,7 +31,7 @@ body {
 }
 
 #encryption{
-  align-self: center;
+  align-content: center;
   box-shadow: 5px 5px #b0b0b0;
   box-sizing: content-box;
   background-color: #f2f2f2;
