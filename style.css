@@ -43,7 +43,7 @@ body {
   padding-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
-  position: static;
+  position: inherit;
   width: 350px;
   height: auto;
 }
