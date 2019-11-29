@@ -43,8 +43,9 @@ body {
   padding-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
-  position: inherit;
-  width: 350px;
+  position: relative;
+  top: 25px;
+  width: 355px;
   height: auto;
 }
 
