@@ -45,8 +45,9 @@ body {
   border-collapse: collapse;
   position: relative;
   top: 50px;
-  width: 350px;
-  height: auto;
+  min-width: 350px;
+  max-width: 600px;
+  min-height: 500px;
   max-height: 600px;
 }
 
