@@ -2,11 +2,13 @@ var consonants = ["b","c","d","f","g","h","k","l","m","n","p","q","r","s","t","v
 
 function encode(){
   var text = Caesar(false, 5, document.getElementById("input").value);
-  var text = KidLang(false, text);
+  text = KidLang(false, text);
+  //text = ZigZag(false, 3, text)
   var Output = document.getElementById("output");
   Output.value = text;
 }
 function decode(){
+  //var text = ZigZag(true, 3, document.getElementById("output").value);
   var text = KidLang(true, document.getElementById("output").value);
   text = Caesar(true, 5, text);
   var Input = document.getElementById("input");
@@ -54,9 +56,66 @@ function KidLang(isDecrypt, text){
     var result = text;
     for (var i = 0; i < text.length; i++){
       var c = text.charAt(i);
-      var coc = "o"+c;
-      result = result.replace(coc, "");
+      if(consonants.includes(c)){
+        var coc = "o"+c;
+        result = result.replace(coc, "");
+      }
     }
   }
   return result;
+}
+function ZigZag(isDecrypt, rows, text) {
+  if(!isDecrypt){
+    rows = rows || 3
+    let fence = [];
+    for (let i = 0; i < rows; i++) fence.push([])
+    let rail = 0;
+    let change = 1;
+
+    for (let char of text.split("")) {
+      fence[rail].push(char)
+      rail += change
+
+      if (rail === rows - 1 || rail === 0) change = -change
+    }
+
+    let r = '';
+    for (let rail of fence) r += rail.join("")
+  }
+  else{
+    rows = rows || 3
+    let fence = [];
+    for (let i = 0; i < rows; i++) fence.push([])
+    let rail = 0;
+    let change = 1;
+
+    text.split("").forEach(char => {
+      fence[rail].push(char)
+      rail += change
+
+      if (rail === rows - 1 || rail === 0) change = -change
+    })
+
+    const rFence = [];
+    for (let i = 0; i < rows; i++) rFence.push([])
+
+    i = 0
+    s = text.split("")
+    for (r of fence) {
+      for (let j = 0; j < r.length; j++) rFence[i].push(s.shift())
+      i++
+    }
+
+    rail = 0
+    change = 1
+    var r = ""
+    for (var i = 0; i < text.length; i++) {
+      r += rFence[rail].shift()
+      rail += change
+
+      if (rail === rows - 1 || rail === 0) change = -change
+    }
+  }
+
+  return r
 }
