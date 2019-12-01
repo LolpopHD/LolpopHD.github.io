@@ -26,8 +26,7 @@ function Caesar(isDecrypt, shift, text){
 		alert("Shift is out of range");
 		return;
 	}
-	if (isDecrypt)
-  {
+	if (isDecrypt){
 		shift = (26 - shift) % 26;
 	}
   var result = "";
@@ -41,8 +40,7 @@ function Caesar(isDecrypt, shift, text){
 	return encoded;
 }
 function KidLang(isDecrypt, text){
-  if(!isDecrypt)
-  {
+  if(!isDecrypt){
     var result = ""
     for (var i = 0; i < text.length; i++){
       var c = text.charAt(i);
@@ -127,7 +125,7 @@ function ZigZag(isDecrypt, rows, text) {
 
       if (rail === rows - 1 || rail === 0) change = -change
     }
-    
+
     return r
   }
 }
