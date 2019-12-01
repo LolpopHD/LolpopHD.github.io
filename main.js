@@ -3,13 +3,13 @@ var consonants = ["b","c","d","f","g","h","k","l","m","n","p","q","r","s","t","v
 function encode(){
   var text = Caesar(false, 5, document.getElementById("input").value);
   text = KidLang(false, text);
-  //text = ZigZag(false, 3, text)
+  text = ZigZag(false, 3, text)
   var Output = document.getElementById("output");
   Output.value = text;
 }
 function decode(){
-  //var text = ZigZag(true, 3, document.getElementById("output").value);
-  var text = KidLang(true, document.getElementById("output").value);
+  var text = ZigZag(true, 3, document.getElementById("output").value);
+  text = KidLang(true, text);
   text = Caesar(true, 5, text);
   var Input = document.getElementById("input");
   Input.value = text;
@@ -47,8 +47,13 @@ function KidLang(isDecrypt, text){
     for (var i = 0; i < text.length; i++){
       var c = text.charAt(i);
       result += c
-      if(consonants.includes(c)){
-        result += "o"+c;
+      if(consonants.includes(c.toLowerCase(c))){
+        if(c.toLowerCase(c)==c){
+          result += "o"+c;
+        }
+        else{
+          result += "O"+c;
+        }
       }
     }
   }
@@ -56,9 +61,15 @@ function KidLang(isDecrypt, text){
     var result = text;
     for (var i = 0; i < text.length; i++){
       var c = text.charAt(i);
-      if(consonants.includes(c)){
-        var coc = "o"+c;
-        result = result.replace(coc, "");
+      if(consonants.includes(c.toLowerCase(c))){
+        if(c.toLowerCase(c)==c){
+          var coc = "o"+c;
+          result = result.replace(coc, "");
+        }
+        else{
+          var coc = "O"+c;
+          result = result.replace(coc, "");
+        }
       }
     }
   }
@@ -72,8 +83,8 @@ function ZigZag(isDecrypt, rows, text) {
     let rail = 0;
     let change = 1;
 
-    for (let char of text.split("")) {
-      fence[rail].push(char)
+    for (let char of text) {
+      fence[rail].push(char);
       rail += change
 
       if (rail === rows - 1 || rail === 0) change = -change
@@ -81,6 +92,7 @@ function ZigZag(isDecrypt, rows, text) {
 
     let r = '';
     for (let rail of fence) r += rail.join("")
+    return r
   }
   else{
     rows = rows || 3
@@ -115,7 +127,7 @@ function ZigZag(isDecrypt, rows, text) {
 
       if (rail === rows - 1 || rail === 0) change = -change
     }
+    
+    return r
   }
-
-  return r
 }
